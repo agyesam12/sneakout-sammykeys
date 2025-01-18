@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 0 5px;
+}
+header{
+    background-color: aqua;
+}
+table{
+    border-collapse: collapse;
+}
+input{
+    padding: 5px;
+    width: auto;
+}
+header{
+    background-color: aqua;
+}
+.sec-1{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: center;
+}
+.div-1{
+    padding: 5px;
+    margin: 35px;
+}
+.div-2{
+    padding: 5px;
+    margin: 35px;
+}
+.form-fill{
+    justify-content: left;
+}
+.cta-buttons{
+    display:
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <style>
+        .contact-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('/api/placeholder/1200/300');
+            background-size: cover;
+            color: white;
+            padding: 80px 0;
+        }
+        .contact-info-card {
+            transition: transform 0.3s;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+        }
+        .map-container {
+            height: 300px;
+            background-color: #f8f9fa;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">CompanyName</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="contact-header text-center">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p class="lead">We're here to help and answer any questions you might have</p>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card contact-info-card h-100">
+                    <div class="card-body text-center">
+                        <h3>Address</h3>
+                        <p>123 Business Street<br>Accra, Ghana</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card contact-info-card h-100">
+                    <div class="card-body text-center">
+                        <h3>Phone</h3>
+                        <p>Tel: +233 123 456 789<br>Fax: +233 123 456 780</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card contact-info-card h-100">
+                    <div class="card-body text-center">
+                        <h3>Email</h3>
+                        <p>info@company.com<br>support@company.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm" class="mt-4">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="tel" class="form-control" placeholder="Your Phone">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>Business Hours</h2>
+                <ul class="list-group mt-4">
+                    <li class="list-group-item">Monday - Friday: 8:00 AM - 5:00 PM</li>
+                    <li class="list-group-item">Saturday: 9:00 AM - 2:00 PM</li>
+                    <li class="list-group-item">Sunday: Closed</li>
+                </ul>
+                <div class="map-container mt-4">
+                    <div class="h-100 d-flex align-items-center justify-content-center bg-light">
+                        <p class="text-muted">Map Location Placeholder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>© 2024 CompanyName. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will contact you soon!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

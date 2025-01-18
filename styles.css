@@ -1,0 +1,195 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #0A0F27;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.links {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logo{
+    border-radius: 10px;
+}
+
+.image{
+    height: 90px;
+
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    background: linear-gradient(120deg, #001F54, #024B89);
+    padding: 3rem;
+    border-radius: 10%;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: auto;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Places Section */
+.places-section {
+    padding: 4rem 2rem;
+    background: #fff;
+    color: black;
+}
+
+.places-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.places-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Place Card Animation */
+.place-card {
+    background: #001F54;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: bounceIn 1s ease forwards;
+    opacity: 0; /* Initial state for animation */
+}
+
+.place-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.place-card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.place-card:hover img {
+    transform: scale(1.1); /* Adds zoom effect on hover */
+}
+
+.place-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.place-card p{
+    color: white;
+}
+
+/* Keyframes for New Animation */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .places-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .place-card {
+        width: 90%; /* Adjust card width for smaller screens */
+    }
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+
+    .btn-primary {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .places-container {
+        gap: 1rem;
+    }
+}

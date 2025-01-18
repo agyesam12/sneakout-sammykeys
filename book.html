@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCTU Booking System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-brand img {
+            height: 40px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('/api/placeholder/1200/400');
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .booking-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+        
+        .booking-card {
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .price-tag {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 40px 0;
+        }
+        .mw{
+            text-decoration: none;
+            color: white;
+            margin:5px;
+            background-color: silver;
+        }
+    </style>
+</head>
+<body>
+   
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container text-center">
+            <h1 class="display-4">Welcome to GCTU Booking System</h1>
+           
+            <a href="#booking" class="btn btn-primary btn-lg">Book Now</a>
+        </div>
+    </section>
+
+   
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card booking-card">
+                        <div class="card-body p-4">
+                            <h3 class="text-center mb-4">Register Now</h3>
+                            <form id="bookingForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Department</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                               
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Date</label>
+                                        <input type="date" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Time</label>
+                                        <input type="time" class="form-control" required>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100 btn-lg">Submit Booking</button>
+
+                                <button class="mw" type="back"><a href="event.html">  Back to events</a></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: obengjethro@gmail.com</p>
+                    <p>Phone: +233 (0) 531240476</p>
+                    <p>Location: Tesano, Accra</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#facilities" class="text-white">Facilities</a></li>
+                        <li><a href="#booking" class="text-white">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3">Facebook</a>
+                        <a href="#" class="text-white me-3">Twitter</a>
+                        <a href="#" class="text-white">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form submission handling
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate date
+            const selectedDate = new Date(document.querySelector('input[type="date"]').value);
+            const today = new Date();
+            
+            if (selectedDate < today) {
+                alert('Please select a future date for your booking.');
+                return;
+            }
+            
+            // Here you would typically send the form data to a server
+            // For demo purposes, we'll just show a success message
+            alert('Thank you for your booking request! We will contact you shortly to confirm your reservation.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

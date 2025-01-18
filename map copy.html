@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Directions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <style>
+        .location-input {
+            background-color: #f8f9fa;
+            border-radius: 25px;
+            padding: 10px 15px;
+            margin: 5px 0;
+        }
+        
+        .map-container {
+            height: 400px;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+        
+        .location-marker {
+            width: 20px;
+            height: 20px;
+            background-color: #ff4444;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .location-popup {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        .waze-button {
+            background-color: #33ccff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+        }
+        
+        .waze-button img {
+            width: 20px;
+            margin-right: 5px;
+        }
+        
+        .close-button {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <nav class="navbar navbar-light bg-light px-3">
+            <button class="navbar-toggler border-0" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <span class="navbar-brand mb-0 h1"> Directions</span>
+        </nav>
+
+        <!-- Location inputs -->
+        <div class="p-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d426.5512428978946!2d-0.22361174602520809!3d5.595909736316782!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9a29cb2f7e63%3A0x8a0d8c82c652cf5c!2sGTUC%20Forecourt%2C%20Nsawam%20Rd%2C%20Accra!5e1!3m2!1sen!2sgh!4v1735044446173!5m2!1sen!2sgh" width="1350" height="700" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="location-input d-flex align-items-center">
+                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                <input type="text" class="form-control border-0 bg-transparent" value="GCTU Campus, Accra, Ghana" readonly>
+                <i class="far fa-clock"></i>
+            </div>
+        </div>
+        
+
+        <!-- Map -->
+        <div class="map-container">
+            <div class="location-marker"></div>
+            <div class="location-popup">
+                <button class="close-button">&times;</button>
+                <h5 class="mb-1">GCTU Campus</h5>
+                <p class="text-muted mb-3">Tesano, Accra</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-link p-0">
+                        <i class="fas fa-share-alt"></i>
+                          <label>Share</label>
+                </div>
+                <div class="mt-3">
+                    <i class="fas fa-phone text-primary"></i>
+                    <a href="tel:0531240476" class="text-decoration-none ms-2">0531240476</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Close button functionality
+        document.querySelector('.close-button').addEventListener('click', function() {
+            document.querySelector('.location-popup').style.display = 'none';
+        });
+
+        // Toggle menu
+        document.querySelector('.navbar-toggler').addEventListener('click', function() {
+            alert('Menu clicked');
+        });
+
+        // Share button
+        document.querySelector('.btn-link').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'GCTU Campus',
+                    text: 'Check out Legon Campus in Accra, Ghana',
+                    url: window.location.href
+                });
+            }
+        });
+
+        // Waze button
+        document.querySelector('.waze-button').addEventListener('click', function() {
+            const address = encodeURIComponent('Gctu Campus, Accra, Ghana');
+            window.open(`https://waze.com/ul?q=${address}`, '_blank');
+        });
+    </script>
+</body>
+</html>

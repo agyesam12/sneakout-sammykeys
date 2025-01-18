@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gctu map</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <style>
+        .form-check-input:checked {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        
+        .settings-item {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-red { color: #dc3545; }
+        .icon-yellow { color: #ffc107; }
+        .icon-blue { color: #0d6efd; }
+        .icon-gray { color: #6c757d; }
+
+        .form-switch .form-check-input {
+            width: 3em;
+            height: 1.5em;
+            margin-left: 0;
+        }
+
+        .header-actions {
+            gap: 15px;
+        }
+
+        .waze-logo {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .toggle-section {
+            border-bottom: 1px solid #dee2e6;
+            padding: 15px;
+        }
+
+        .menu-section {
+            padding: 15px;
+        }
+
+        .menu-item {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+       .lang-s{
+        text-decoration: none;
+        color: black;
+       }
+       .mes{
+        text-decoration: none;
+        color: black;
+       }
+       body{
+         max-width:1300px;
+       }
+       .text-position{
+        justify-content: flex-end;
+        display:flex;
+       align-items: :flex-end;
+       flex-direction:column;
+
+       }
+    </style>
+</head>
+<body>
+    <div class="container-fluid px-0">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+            <div class="d-flex align-items-center gap-3">
+
+                <span>Driving directions</span>
+            </div>
+            <div class="d-flex header-actions align-items-center">
+                <i class="bi bi-arrow-down-up"></i>
+                <i class="bi bi-clock"></i>
+                <i class="bi bi-share"></i>
+                <i class="bi bi-bookmark"></i>
+                <i class="bi bi-three-dots-vertical"></i>
+            </div>
+        </div>
+
+        <!-- Waze Logo -->
+        <div class="waze-logo">
+            MENU
+        </div>
+
+        <!-- Toggle Settings -->
+        <div class="toggle-section">
+            <div class="settings-item d-flex justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-car-front-fill icon-red fs-5"></i>
+                    <span>Show traffic jams</span>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" checked>
+                </div>
+            </div>
+
+            <div class="settings-item d-flex justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-exclamation-circle-fill icon-yellow fs-5"></i>
+                    <span>Show reports</span>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" checked>
+                </div>
+            </div>
+
+            <div class="settings-item d-flex justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-people-fill icon-blue fs-5"></i>
+                    <span>Show other routes</span>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" checked>
+                </div>
+            </div>
+
+            <div class="settings-item d-flex justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-bell  fs-5"></i>
+                    <span>Turn on notification</span>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox">
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="menu-section">
+            <div class="menu-item">
+                <i class="bi bi-"></i>
+                <span>Account</span>
+            </div>
+            
+            <div class="menu-item">
+                <i class="bi bi-person"></i>
+                <span>User</span>
+            
+            </div>
+            <div class="menu-item">
+                <i class="bi bi-info-circle"></i>
+                <span class="links"><a href="about.html"> About Gctu</a></span>
+            </div>
+          
+
+            <div class="menu-item">
+                <i class="bi bi-translate"></i>
+                <span> <a class="lang-s" href="lang.html"> Select language</a></span>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Add click handlers for the toggle switches
+        document.querySelectorAll('.form-check-input').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                // You can add specific functionality here when toggles are switched
+                console.log('Toggle changed:', this.checked);
+            });
+        });
+
+        // Add click handlers for menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // You can add specific functionality here when menu items are clicked
+                console.log('Menu item clicked:', this.querySelector('span').textContent);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCTU Academic Calendar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('/api/placeholder/1200/300');
+            background-size: cover;
+            color: white;
+            padding: 60px 0;
+        }
+        .calendar-card {
+            border-left: 4px solid #0d6efd;
+            margin-bottom: 20px;
+        }
+        .semester-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .date-badge {
+            background-color: #0d6efd;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">GCTU</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#first-semester">First Semester</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#second-semester">Second Semester</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header text-center">
+        <div class="container">
+            <h1>Academic Calendar 2024/2025</h1>
+            <p class="lead">Ghana Communication Technology University</p>
+        </div>
+    </header>
+
+    <!-- Calendar Content -->
+    <div class="container py-5">
+        <!-- First Semester -->
+        <section id="first-semester">
+            <div class="semester-header">
+                <h2>First Semester</h2>
+                <p class="text-muted">August 2024 - December 2024</p>
+            </div>
+
+            <div class="calendar-card card p-3">
+                <h5>Registration Period</h5>
+                <p><span class="date-badge">Aug 15 - Aug 30</span></p>
+                <p>Course registration for continuing and fresh students</p>
+            </div>
+
+            <div class="calendar-card card p-3">
+                <h5>Teaching Period</h5>
+                <p><span class="date-badge">Sept 4 - Nov 24</span></p>
+                <p>Regular lectures and academic activities</p>
+            </div>
+
+            <div class="calendar-card card p-3">
+                <h5>Mid-Semester Examinations</h5>
+                <p><span class="date-badge">Oct 9 - Oct 13</span></p>
+                <p>Mid-semester assessment period</p>
+            </div>
+
+            <div class="calendar-card card p-3">
+                <h5>End of Semester Examinations</h5>
+                <p><span class="date-badge">Dec 4 - Dec 22</span></p>
+                <p>Final examinations period</p>
+            </div>
+        </section>
+
+        <!-- Second Semester -->
+        <section id="second-semester" class="mt-5">
+            <div class="semester-header">
+                <h2>Second Semester</h2>
+                <p class="text-muted">January 2025 - May 2025</p>
+            </div>
+
+            <div class="calendar-card card p-3">
+                <h5>Registration Period</h5>
+                <p><span class="date-badge">Jan 8 - Jan 19</span></p>
+                <p>Course registration for all students</p>
+            </div>
+
+            <div class="calendar-card card p-3">
+                <h5>Teaching Period</h5>
+                <p><span class="date-badge">Jan 22 - Apr 12</span></p>
+                <p>Regular lectures and academic activities</p>
+            </div>
+
+            <div class="calendar-card card p-3">
+                <h5>Mid-Semester Examinations</h5>
+                <p><span class="date-badge">Mar 4 - Mar 8</span></p>
+                <p>Mid-semester assessment period</p>
+            </div>
+
+            <div class="calendar-card card p-3">
+                <h5>End of Semester Examinations</h5>
+                <p><span class="date-badge">Apr 22 - May 10</span></p>
+                <p>Final examinations period</p>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="text-center mt-5">
+            <button class="bbb" onclick="alert('Calendar PDF download started')"><a href="https://site.gctu.edu.gh/wp-content/uploads/gtuc/external/2024-2025_ACADEMIC_CALENDAR_FOR_UG_PROGRAMMES.pdf">
+                Download Calendar PDF
+            </button></a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>© 2024 Ghana Communication Technology University. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waze Language Selector</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    ><script src="js/bootstrap.js"></script>
+    <style>
+        .language-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .language-item.selected {
+            background-color: #e9ecef;
+        }
+
+        .search-container {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            z-index: 1000;
+        }
+
+        .language-list {
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+
+        .search-box {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .check-icon {
+            color: #0d6efd;
+            visibility: hidden;
+        }
+
+        .language-item.selected .check-icon {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid px-0">
+        <!-- Back Button -->
+        <div class="back-button">
+            
+            <span>Select language</span>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search language" id="searchInput">
+        </div>
+
+        <!-- Language List -->
+        <div class="language-list" id="languageList">
+            <!-- Languages will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Language data with codes and native names
+        const languages = [
+            { code: 'en', name: 'English', native: 'English' },
+            { code: 'es', name: 'Spanish', native: 'Español' },
+            { code: 'fr', name: 'French', native: 'Français' },
+            { code: 'de', name: 'German', native: 'Deutsch' },
+            { code: 'it', name: 'Italian', native: 'Italiano' },
+            { code: 'pt', name: 'Portuguese', native: 'Português' },
+            { code: 'ru', name: 'Russian', native: 'Русский' },
+            { code: 'zh', name: 'Chinese', native: '中文' },
+            { code: 'ja', name: 'Japanese', native: '日本語' },
+            { code: 'ko', name: 'Korean', native: '한국어' },
+            { code: 'ar', name: 'Arabic', native: 'العربية' },
+            { code: 'hi', name: 'Hindi', native: 'हिन्दी' },
+            { code: 'bn', name: 'Bengali', native: 'বাংলা' },
+            { code: 'tr', name: 'Turkish', native: 'Türkçe' },
+            { code: 'nl', name: 'Dutch', native: 'Nederlands' },
+            { code: 'pl', name: 'Polish', native: 'Polski' },
+            { code: 'vi', name: 'Vietnamese', native: 'Tiếng Việt' },
+            { code: 'th', name: 'Thai', native: 'ไทย' },
+            { code: 'sw', name: 'Swahili', native: 'Kiswahili' },
+            { code: 'uk', name: 'Ukrainian', native: 'Українська' }
+        ];
+
+        let currentLanguage = 'en'; // Default language
+
+        // Function to create language item HTML
+        function createLanguageItem(language) {
+            return `
+                <div class="language-item ${language.code === currentLanguage ? 'selected' : ''}" 
+                     data-code="${language.code}">
+                    <div>
+                        <div>${language.native}</div>
+                        <div class="text-muted small">${language.name}</div>
+                    </div>
+                    <i class="bi bi-check check-icon"></i>
+                </div>
+            `;
+        }
+
+        // Function to populate language list
+        function populateLanguageList(searchTerm = '') {
+            const languageList = document.getElementById('languageList');
+            const filteredLanguages = languages.filter(lang => 
+                lang.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                lang.native.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            languageList.innerHTML = filteredLanguages
+                .map(createLanguageItem)
+                .join('');
+
+            // Add click handlers to language items
+            document.querySelectorAll('.language-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const code = item.dataset.code;
+                    selectLanguage(code);
+                });
+            });
+        }
+
+        // Function to select a language
+        function selectLanguage(code) {
+            currentLanguage = code;
+            document.querySelectorAll('.language-item').forEach(item => {
+                item.classList.toggle('selected', item.dataset.code === code);
+            });
+            
+            // Save selected language
+            localStorage.setItem('selectedLanguage', code);
+            
+            // You can add additional language change logic here
+            console.log(`Language changed to: ${code}`);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load saved language
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            if (savedLanguage) {
+                currentLanguage = savedLanguage;
+            }
+
+            // Initial population
+            populateLanguageList();
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                populateLanguageList(e.target.value);
+            });
+
+            // Back button functionality
+            document.querySelector('.back-button').addEventListener('click', () => {
+                // You can implement navigation back to the main settings page here
+                console.log('Navigate back');
+            });
+        });
+    </script>
+</body>
+</html>

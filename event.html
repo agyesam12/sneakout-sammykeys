@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCTU Events</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url(assets/gt1.jpg) center/cover no-repeat;
+            color: white;
+            padding: 100px 0;
+        }
+
+        .event-card {
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .custom-navbar {
+            background-color: #003366;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .event-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #003366;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .seats-remaining {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .seats-high {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .seats-medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .seats-low {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .progress {
+            height: 8px;
+            margin-top: 5px;
+        }
+
+        .event-time {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .event-time i {
+            font-size: 1.1rem;
+            color: #003366;
+        }
+
+        .event-details {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">GCTU Events</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.htm">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="event.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 mb-4">GCTU Events Portal</h1>
+            <p class="lead">Stay updated with the latest events and activities at Ghana Communication Technology University</p>
+            <button class="btn btn-primary btn-lg">View All Events</button>
+        </div>
+    </section>
+    
+
+    <!-- Events Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Upcoming Events</h2>
+            <div class="row">
+                <!-- Event Card 1 -->
+                <div class="col-md-4">
+                    <div class="card event-card">
+                        <img src="assets/gt5.jpg" class="card-img-top" alt="Event 1">
+                        <span class="event-category">Academic</span>
+                        <div class="card-body">
+                            <h5 class="card-title">Technology Innovation Summit</h5>
+                            <p class="card-text">Join us for an exciting discussion on emerging technologies and their impact on society.</p>
+                            <div class="event-details">
+                                <div class="event-time">
+                                    <i class="bi bi-calendar"></i>
+                                    <span>March 15, 2025</span>
+                                </div>
+                                <div class="event-time">
+                                    <i class="bi bi-clock"></i>
+                                    <span>9:00 AM - 2:00 PM</span>
+                                </div>
+                                <div class="event-time">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>Main Auditorium</span>
+                                </div>
+                            </div>
+                            <div class="seats-remaining seats-low">
+                                <strong>Seats Remaining: 15 of 200</strong>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 92.5%" aria-valuenow="92.5" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="col-md-4">
+                    <div class="card event-card">
+                        <img src="assets/gt6.jpg" class="card-img-top" alt="Event 2">
+                        <span class="event-category">Cultural</span>
+                        <div class="card-body">
+                            <h5 class="card-title">GCTU Cultural Day</h5>
+                            <p class="card-text">Experience the rich cultural diversity of our university community.</p>
+                            <div class="event-details">
+                                <div class="event-time">
+                                    <i class="bi bi-calendar"></i>
+                                    <span>March 20, 2025</span>
+                                </div>
+                                <div class="event-time">
+                                    <i class="bi bi-clock"></i>
+                                    <span>11:00 AM - 6:00 PM</span>
+                                </div>
+                                <div class="event-time">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>University Square</span>
+                                </div>
+                            </div>
+                            <div class="seats-remaining seats-medium">
+                                <strong>Seats Remaining: 75 of 300</strong>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Thank You</a>
+                        </div>
+                    </div>
+                </div>
+ <!-- Event Card 2 -->
+ <div class="col-md-4">
+    <div class="card event-card">
+        <img src="assets/gt4.jpg" class="card-img-top" alt="Event 2">
+        <span class="event-category">Trips</span>
+        <div class="card-body">
+            <h5 class="card-title">GCTU  Fun  Trip</h5>
+            <p class="card-text">Experience the rich cultural diversity of our university community.</p>
+            <div class="event-details">
+                <div class="event-time">
+                    <i class="bi bi-calendar"></i>
+                    <span>March 20, 2025</span>
+                </div>
+                <div class="event-time">
+                    <i class="bi bi-clock"></i>
+                    <span>11:00 AM - 6:00 PM</span>
+                </div>
+                <div class="event-time">
+                    <i class="bi bi-geo-alt"></i>
+                    <span>University Square</span>
+                </div>
+            </div>
+            <div class="seats-remaining seats-medium">
+                <strong>Seats Remaining: 75 of 300</strong>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <a href="book.html" class="btn btn-primary w-100 mt-3">Book Now</a>
+        </div>
+    </div>
+</div>
+ <!-- Booking Modal -->
+ <div class="modal fade" id="bookingModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Book Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <input type="hidden" id="eventId">
+                    <div class="mb-3">
+                        <label for="studentName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="studentName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentId" class="form-label">Student ID</label>
+                        <input type="text" class="form-control" id="studentId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="studentEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="numSeats" class="form-label">Number of Seats</label>
+                        <input type="number" class="form-control" id="numSeats" min="1" max="5" value="1" required>
+                    </div>
+                    <div class="text-end">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Book Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm">
+                        <input type="hidden" id="eventId">
+                        <div class="mb-3">
+                            <label for="studentName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="studentName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentId" class="form-label">Student ID</label>
+                            <input type="text" class="form-control" id="studentId" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="studentEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="numSeats" class="form-label">Number of Seats</label>
+                            <input type="number" class="form-control" id="numSeats" min="1" max="5" value="1" required>
+                        </div>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+                <!-- Event Card 3 -->
+                <div class="col-md-4">
+                    <div class="card event-card">
+                        <img src="assets/gt7.jpg" class="card-img-top" alt="Event 3">
+                        <span class="event-category">Workshop</span>
+                        <div class="card-body">
+                            <h5 class="card-title">Web Development Workshop</h5>
+                            <p class="card-text">Hands-on workshop on modern web development technologies and practices.</p>
+                            <div class="event-details">
+                                <div class="event-time">
+                                    <i class="bi bi-calendar"></i>
+                                    <span>March 25, 2025</span>
+                                </div>
+                                <div class="event-time">
+                                    <i class="bi bi-clock"></i>
+                                    <span>2:00 PM - 5:00 PM</span>
+                                </div>
+                                <div class="event-time">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>ICT Lab</span>
+                                </div>
+                            </div>
+                            <div class="seats-remaining seats-high">
+                                <strong>Seats Remaining: 40 of 50</strong>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: events@gctu.edu.gh</p>
+                    <p>Phone: +233 123 456 789</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">About GCTU</a></li>
+                        <li><a href="#" class="text-white">Academic Calendar</a></li>
+                        <li><a href="#" class="text-white">Campus Map</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3">Facebook</a>
+                        <a href="#" class="text-white me-3">Twitter</a>
+                        <a href="#" class="text-white">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
